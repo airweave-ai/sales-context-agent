@@ -1,0 +1,22 @@
+# FastAPI and server
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+websockets==14.2
+python-dotenv==1.0.1
+
+# LLM providers (pinned for compatibility)
+langchain-core==0.3.29
+langchain-anthropic==0.3.0
+langchain-openai==0.3.0
+openai==1.58.1
+anthropic==0.40.0
+
+# Airweave API (called via httpx, no SDK needed - avoids pydantic version conflicts)
+
+# Utilities
+pydantic==2.10.4
+httpx==0.28.1
+
+# Optional: Slack integration
+# Uncomment if you want to enable real Slack posting
+# slack-sdk>=3.27.0

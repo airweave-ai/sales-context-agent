@@ -1,0 +1,5 @@
+# This directory stores JSON state files at runtime
+# - error_signatures.json: Error patterns and history
+# - mutes.json: Active mutes
+#
+# These files are created automatically and should not be committed.

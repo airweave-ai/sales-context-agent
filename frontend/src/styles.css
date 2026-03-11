@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sales Context Agent - Navy/Slate Dark Theme */
+:root {
+  --radius: 0.5rem;
+
+  /* Dark theme (default) */
+  --background: oklch(0.13 0.02 250);
+  --foreground: oklch(0.97 0.002 250);
+  --card: oklch(0.17 0.015 250);
+  --card-foreground: oklch(0.97 0.002 250);
+  --popover: oklch(0.17 0.015 250);
+  --popover-foreground: oklch(0.97 0.002 250);
+  --primary: oklch(0.65 0.15 250);
+  --primary-foreground: oklch(0.97 0.002 250);
+  --secondary: oklch(0.22 0.01 250);
+  --secondary-foreground: oklch(0.97 0.002 250);
+  --muted: oklch(0.22 0.01 250);
+  --muted-foreground: oklch(0.6 0.01 250);
+  --accent: oklch(0.35 0.01 250);
+  --accent-foreground: oklch(0.97 0.002 250);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.97 0.002 250);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.65 0.15 250);
+
+  /* Source colors */
+  --source-notion: oklch(0.6 0.01 250);
+  --source-google-drive: oklch(0.65 0.18 145);
+  --source-github: oklch(0.7 0.15 280);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+code, pre {
+  font-family: 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-mono-uppercase {
+    @apply font-mono text-sm font-medium uppercase tracking-wide;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Animation for step indicator */
+@keyframes step-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-step-pulse {
+  animation: step-pulse 1.5s ease-in-out infinite;
+}
+
+/* Code block styling */
+.code-block {
+  background: oklch(0.1 0.01 250);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Source badge colors */
+.source-notion {
+  background-color: oklch(0.3 0.01 250);
+  color: oklch(0.85 0.01 250);
+}
+
+.source-google-drive {
+  background-color: oklch(0.25 0.08 145);
+  color: oklch(0.8 0.15 145);
+}
+
+.source-github {
+  background-color: oklch(0.25 0.07 280);
+  color: oklch(0.8 0.12 280);
+}
+
+/* Staggered fade-in animation for progressive loading effect */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeSlideIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Staggered delay classes for list items */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+.stagger-8 { animation-delay: 0.8s; }
+.stagger-9 { animation-delay: 0.9s; }
+.stagger-10 { animation-delay: 1.0s; }
+
+/* Typing/processing indicator animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Progress bar animation */
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--progress-width, 100%); }
+}
+
+.animate-progress {
+  animation: progressFill 0.8s ease-out forwards;
+}
+
+/* Markdown rendering for brief output */
+.brief-markdown h1 {
+  @apply text-xl font-bold mb-4;
+}
+
+.brief-markdown h2 {
+  @apply text-lg font-semibold mb-3 mt-6 pb-2 border-b border-border;
+}
+
+.brief-markdown h3 {
+  @apply text-base font-semibold mb-2 mt-4;
+}
+
+.brief-markdown p {
+  @apply text-sm mb-3 leading-relaxed;
+}
+
+.brief-markdown ul {
+  @apply text-sm mb-3 ml-4 space-y-1;
+}
+
+.brief-markdown ul li {
+  @apply list-disc;
+}
+
+.brief-markdown ol {
+  @apply text-sm mb-3 ml-4 space-y-1;
+}
+
+.brief-markdown ol li {
+  @apply list-decimal;
+}
+
+.brief-markdown strong {
+  @apply font-semibold text-foreground;
+}
+
+.brief-markdown table {
+  @apply w-full text-sm mb-4 border-collapse;
+}
+
+.brief-markdown th {
+  @apply text-left font-semibold p-2 border-b border-border;
+}
+
+.brief-markdown td {
+  @apply p-2 border-b border-border;
+}
+
+.brief-markdown hr {
+  @apply border-border my-4;
+}
