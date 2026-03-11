@@ -147,11 +147,11 @@ async def run_pipeline(config: PipelineConfig) -> PipelineState:
         synthesizer = BriefSynthesizer()
         output_handler = BriefOutputHandler()
 
-        # Determine briefing request
-        if config.use_sample_data or not config.briefing_request:
-            briefing_request = get_sample_briefing_request()
-        else:
+        # Determine briefing request (always use sample if none provided)
+        if config.briefing_request:
             briefing_request = config.briefing_request
+        else:
+            briefing_request = get_sample_briefing_request()
 
         # Step 1: Briefing Request
         state.current_step = 0
