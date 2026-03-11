@@ -4,7 +4,7 @@ Pre-meeting briefs powered by [Airweave](https://airweave.ai). Pulls context fro
 
 ## Why This Exists
 
-Sales reps waste time scrambling for context before calls. The information exists -- scattered across Notion pages, Google Drive docs, and GitHub repos -- but finding it takes too long.
+Sales reps waste time scrambling for context before calls. The information exists, scattered across Notion pages, Google Drive docs, and GitHub repos, but finding it takes too long.
 
 This agent uses Airweave to search across all your connected sources at once and synthesize the results into a structured pre-meeting brief.
 
